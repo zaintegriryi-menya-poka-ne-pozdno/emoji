@@ -7,14 +7,46 @@
 img {
     display: block;
 }
-
+.selectshab{
+    position: relative;
+    display: inline-flex;
+    right: 1px;bottom: 16px;
+    text-transform: none;
+    font-size: 15px;
+    font-weight: 100;
+    height: 100px;
+    max-height: 100px;
+    border-radius: 1px;
+    width: 150px;
+    line-height: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-image: initial;
+    border-color: #8591a5;
+    font: inherit;" multiple name="hero[]
+}
+.chatemoji{
+    position: relative;
+    display: inline-block;
+    right: -450px;
+    text-transform: none;
+    font-size: 13px;
+    height: 30px;
+    max-height: 30px;
+    width: 30px;
+    top: 5px;
+    line-height: 14px;
+}
 
 .emoji-picker {
+    position: absolute;
+    left: 550px;
+    bottom: 40px;
     background-color: #303841;
     width: 400px;
-    margin: 50px;
-    border-radius: 5px;
-    height: 400px;
+    /*margin: 50px;*/
+    border-radius: 2px;
+    height: 265px;
     display: flex;
 }
 
@@ -83,8 +115,8 @@ img {
 }
 
 .emoji-content span img {
-    width: 32px;
-    height: 32px;
+    width: 18px;
+    height: 18px;
 }
 
 
