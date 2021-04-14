@@ -10,7 +10,8 @@ img {
 .selectshab{
     position: relative;
     display: inline-flex;
-    right: 1px;bottom: 16px;
+    right: 25px;
+    bottom: 15px;
     text-transform: none;
     font-size: 15px;
     font-weight: 100;
@@ -19,10 +20,6 @@ img {
     border-radius: 1px;
     width: 150px;
     line-height: 14px;
-    border-width: 1px;
-    border-style: solid;
-    border-image: initial;
-    border-color: #8591a5;
     font: inherit;" multiple name="hero[]
 }
 .chatemoji{

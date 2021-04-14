@@ -65,6 +65,8 @@ define(['jquery', 'underscore', 'twigjs'], function ($, _, Twig) {
         //  Подключаем файл style.css передавая в качестве параметра версию виджета
         $("head").append('<link href="' + settings.path + '/css/emojis.css?v=' + settings.version + '" type="text/css" rel="stylesheet">');
       }
+      // $sh = document.querySelector("#list_item_1709 > div.list-row__cell.js-list-row__cell.list-row__cell-template-reply_name.list-row__cell-reply_name > div");
+      // $sh.style.height = '38px';
       // console.log('CSS файл добавлен');
       //   console.log(AMOCRM);
       //   $click = document.querySelector("#card_holder > div.js-card-feed.card-holder__feed > div > div.feed-compose.feed-compose_amojo-internal")
@@ -115,7 +117,19 @@ define(['jquery', 'underscore', 'twigjs'], function ($, _, Twig) {
       //   // $divemoji.style = 'display: none';
       // // console.log($( "#card_holder > div.js-card-feed.card-holder__feed > div > div.feed-compose.feed-compose_amojo-internal" ).style);
       // // console.log($( "#card_holder > div.js-card-feed.card-holder__feed > div > div.feed-compose.feed-compose_amojo-internal" ).cssText);
-      // $("#card_holder > div.js-card-feed.card-holder__feed > div > div.feed-compose.feed-compose_amojo-internal" ).click(function() {
+      if($('.feed-compose').hasClass('minimized')){
+        alert('У этого блока есть класс minimized');
+      }else{
+        alert('У этого блока нет класса teminimizedst1');
+      }
+      $("#control-contenteditable__area feed-compose__message" ).click(function() {
+        if($('.feed-compose').hasClass('minimized')){
+          alert('У этого блока есть класс minimized');
+        }else{
+          alert('У этого блока нет класса minimized');
+        }
+        alert($(this).attr("class"));
+      });
       //   // transition: box-shadow .2s;
       //   $chatt.append(button);
       //   $chatt.append(emoji);
@@ -289,7 +303,7 @@ define(['jquery', 'underscore', 'twigjs'], function ($, _, Twig) {
           console.log($chat);
           $ms = document.querySelector('.control-contenteditable__area'); //
           console.log($ms);
-          $ms.innerText = 'Это текст';
+          // $ms.innerText = 'Это текст';
           console.log(AMOCRM);
           console.log("_________");
           //Работает
@@ -325,7 +339,7 @@ define(['jquery', 'underscore', 'twigjs'], function ($, _, Twig) {
           // $divemoji.appendChild(emoji);
           let flag = false;
           let fuck = true;
-          $divselect.id = 'shablon';
+          // $divselect.id = 'shablon';
           $divselect.style = 'display: none';
           $( "#faceEnter" ).click(function() {
             console.log( "faceEnter" );
@@ -422,43 +436,68 @@ define(['jquery', 'underscore', 'twigjs'], function ($, _, Twig) {
               emoji($($(this).children()).attr('alt'));
             })
           };
-
+          var langArray = [
+            {value: "val1", text: "text 1"},
+            {value: "val2", text: "text 2"}
+          ];
+          var select = document.createElement('select'),
+              option,
+              i = 0,
+              il = langArray.length;
+          select.size = '2';
+          select.id = 'shablon';
+          select.name = 'shablon';
+          select.className = 'selectshab';
+          for (; i < il; i += 1) {
+            option = document.createElement('option');
+            option.id = 'optionn';
+            option.className = 'optionn';
+            option.setAttribute('value', langArray[i].value);
+            option.appendChild(document.createTextNode(langArray[i].text));
+            select.appendChild(option);
+          }
+          $divselect.appendChild(select);
+          $knopka.appendChild($divselect);
           $("#multispisoc" ).click(function() {
-            alert( "multispisoc" );
-            // display: none;
-            // display: inline-flex;
-            alert($divselect.style.display);
-            console.log($divselect.style.display);
             if ($divselect.style.display == ' ' || $divselect.style.display == 'none') {
               alert('none');
-              button.removeAttribute( 'style' );
+              button.removeAttribute('style');
               button.style = 'position: relative;display: inline-block;right: -600px;background-color: #77a2e8; color: #fff!important;border-color: transparent!important;text-transform: none; font-size: 13px;    font-weight: 700;     height: 40px;max-height: 38px;border-radius: 1px;    width: 115px;line-height: 14px;border: 1px solid #dbdedf;';
-              $divselect.style = 'position: relative; display: inline-flex;right: -480px;bottom: 85px;text-transform: none;font-size: 15px;font-weight: 100;    height: 40px;    max-height: 100px;border-radius: 1px;width: 100px;line-height: 14px;border-width: 1px;    border-style: solid;    border-color: #3c4038;';
-              $divselect.innerHTML = ('<select size="2" id = "shablon" class="selectshab"><option value="value1">1</option><option value="value2">2</option><option value="value3">3</option></select>');
+              $divselect.style = 'position: relative; display: inline-flex;right: -480px;bottom: 85px;text-transform: none;font-size: 16px;font-weight: 100;    height: 40px;    max-height: 100px;border-radius: 1px;width: 115px;line-height: 14px;';
             } else {
               alert('else');
               button.removeAttribute( 'style' );
               button.style = 'position: relative;display: inline-block;right: -600px;background-color: #5687d6; color: #fff!important;border-color: transparent!important;text-transform: none; font-size: 13px;    font-weight: 700;     height: 40px;max-height: 38px;border-radius: 1px;    width: 115px;line-height: 14px;border: 1px solid #dbdedf;';
-              $divselect.style = 'position: relative; display: none;right: -480px;bottom: 85px;text-transform: none;font-size: 15px;font-weight: 100;    height: 40px;    max-height: 100px;border-radius: 1px;width: 100px;line-height: 14px;border-width: 1px;    border-style: solid;    border-color: #3c4038;';
-              $divselect.innerHTML = ('<select size="2" style="position: relative;display: none;    right: 1px;bottom: 16px;    text-transform: none;font-size: 15px;    font-weight: 100;height: 100px;max-height: 100px;border-radius: 1px;width: 150px;line-height: 14px;border-width: 1px;border-style: solid;    border-image: initial;    border-color: #8591a5;font: inherit;" multiple name="hero[]"><option value="Чебурашка">Добавить новый шаблон</option><option value="Чебурашка">Чебурашка</option><option selected value="Крокодил Гена">Крокодил Гена</option></select>');
-            }
-            alert($divselect.style.display);
-            console.log($divselect.style.display);
-            $knopka.appendChild($divselect);
-            $divselect.removeAttribute( 'innerHTML' );
-            // window.open('/settings/communications/'); // работает *
+              $divselect.style = 'position: relative; display: none;right: -480px;bottom: 85px;text-transform: none;font-size: 16px;font-weight: 100;    height: 40px;    max-height: 100px;border-radius: 1px;width: 115px;line-height: 14px;';
+          }
+            $( "#chat > div:nth-child(5) select" )
+                .change(function () {
+                  $( "#chat > div:nth-child(5) select option:selected" ).each(function() {
+                    console.log("Каждый раз заходить сюда");
+                    $ms.innerText = ' ';
+                    $ms.innerText = $(this).val();
+                    $(this).removeAttr("selected");
+                    button.removeAttribute( 'style' );
+                    button.style = 'position: relative;display: inline-block;right: -600px;background-color: #5687d6; color: #fff!important;border-color: transparent!important;text-transform: none; font-size: 13px;    font-weight: 700;     height: 40px;max-height: 38px;border-radius: 1px;    width: 115px;line-height: 14px;border: 1px solid #dbdedf;';
+                    $divselect.style = 'position: relative; display: none;right: -480px;bottom: 85px;text-transform: none;font-size: 16px;font-weight: 100;    height: 40px;    max-height: 100px;border-radius: 1px;width: 115px;line-height: 14px;';
+                  });
+                })
+                .change();
           });
-          $('#shablon').on('change', function() {
-            console.log('shab')
-            var value = $(this).val();
-            $ms.innerText = ' ';
-            $ms.innerText = value;
-            button.removeAttribute( 'style' );
-            button.style = 'position: relative;display: inline-block;right: -600px;background-color: #5687d6; color: #fff!important;border-color: transparent!important;text-transform: none; font-size: 13px;    font-weight: 700;     height: 40px;max-height: 38px;border-radius: 1px;    width: 115px;line-height: 14px;border: 1px solid #dbdedf;';
-            $divselect.style = 'position: relative; display: none;right: -480px;bottom: 85px;text-transform: none;font-size: 15px;font-weight: 100;    height: 40px;    max-height: 100px;border-radius: 1px;width: 100px;line-height: 14px;border-width: 1px;    border-style: solid;    border-color: #3c4038;';
-            $divselect.innerHTML = ('<p><select size="2" style="position: relative;display: none;    right: 1px;bottom: 16px;    text-transform: none;font-size: 15px;    font-weight: 100;height: 100px;max-height: 100px;border-radius: 1px;width: 150px;line-height: 14px;border-width: 1px;border-style: solid;    border-image: initial;    border-color: #8591a5;font: inherit;" multiple name="hero[]"><option value="Чебурашка">Добавить новый шаблон</option><option value="Чебурашка">Чебурашка</option><option selected value="Крокодил Гена">Крокодил Гена</option></select></p><p>');
 
-          });
+          // $("#selbot" ).click(function() {
+          //   console.log('shab')
+          //   $(".selectshab option:selected"), function(){
+          //     alert($(this).val());
+          //     $ms.innerText = ' ';
+          //     $ms.innerText = $(this).val();
+          //     button.removeAttribute( 'style' );
+          //     button.style = 'position: relative;display: inline-block;right: -600px;background-color: #5687d6; color: #fff!important;border-color: transparent!important;text-transform: none; font-size: 13px;    font-weight: 700;     height: 40px;max-height: 38px;border-radius: 1px;    width: 115px;line-height: 14px;border: 1px solid #dbdedf;';
+          //     $selbot.style = 'position: relative;display: none;right: -10px;background-color: #77a2e8; color: #fff!important;border-color: transparent!important;text-transform: none; font-size: 13px;    font-weight: 700;     height: 40px;max-height: 38px;border-radius: 1px;    width: 115px;line-height: 14px;border: 1px solid #dbdedf;';
+          //     $divselect.style = 'position: relative; display: none;right: -480px;bottom: 85px;text-transform: none;font-size: 15px;font-weight: 100;    height: 40px;    max-height: 100px;border-radius: 1px;width: 100px;line-height: 14px;border-width: 1px;    border-style: solid;    border-color: #3c4038;';
+          //     $divselect.innerHTML = ('<p><select size="2" style="position: relative;display: none;    right: 1px;bottom: 16px;    text-transform: none;font-size: 15px;    font-weight: 100;height: 100px;max-height: 100px;border-radius: 1px;width: 150px;line-height: 14px;border-width: 1px;border-style: solid;    border-image: initial;    border-color: #8591a5;font: inherit;" multiple name="hero[]"></select>');
+          //   };
+          // });
           // notesid.id = "notesid";
           // card_fields.id = "card_fields";
           // cc.id = "cc";
